@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Agriculture Chatbot</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://wallpapercave.com/wp/wp9212357.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    #chatbox {
+      margin: 50px auto;
+      width: 60%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .message {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .userText {
+      justify-content: flex-end;
+    }
+
+    .botText {
+      justify-content: flex-start;
+      color: #007bff;
+    }
+
+    .message span {
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #f9f9f9;
+    }
+
+    #userInput {
+      margin: 50px auto;
+      width: 60%;
+      text-align: center;
+    }
+
+    #textInput {
+      border: none;
+      border-bottom: 3px solid green;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      padding: 5px;
+      width: 80%;
+    }
+
+    #buttonInput {
+      padding: 10px 20px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    /* Additional Styles */
+
+    #chatbox img {
+      margin-right: 10px;
+      height: 30px;
+      width: 30px;
+      object-fit: contain;
+    }
+
+    #chatbox .botText span {
+      background-color: #e6f1ff;
+    }
+
+    #userInput #textInput:focus {
+      outline: none;
+      border-bottom: 3px solid #4caf50;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <h1>Agriculture Chatbot</h1>
+
+  <div id="chatbox">
+    <div class="message botText">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712038.png" alt="Bot Icon">
+      <span>Welcome to the Agriculture Chatbot!</span>
+    </div>
+  </div>
+
+  <div id="userInput">
+    <input id="textInput" type="text" name="userMessage" placeholder="Type your message here">
+    <input type="submit" id="buttonInput" value="Send">
+  </div>
+
+  <script>
+    function getUserResponse() {
+      var userText = $('#textInput').val();
+      var userHTML = "<div class='message userText'><span>" + userText + "</span></div>";
+      $('#textInput').val("");
+      $('#chatbox').append(userHTML);
+      document.getElementById("userInput").scrollIntoView({ block: 'start', behavior: 'smooth' });
+      $.get("/get", { userMessage: userText }).done(function(data) {
+        var botHTML = "<div class='message botText'><img src='https://cdn-icons-png.flaticon.com/512/4712/4712038.png' alt='Bot Icon'><span>" + data + "</span></div>";
+        $('#chatbox').append(botHTML);
+        document.getElementById("userInput").scrollIntoView({ block: 'start', behavior: 'smooth' });
+      });
+    }
+
+    $("#textInput").keypress(function(e) {
+      if (e.which == 13) {
+        getUserResponse();
+      }
+    });
+
+    $("#buttonInput").click(function(e) {
+      getUserResponse();
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chatbot</title>
+
+<style>
+  body{
+    font-family: monospace;
+
+  }
+  #chatbox{
+    margin-left:auto;
+    margin-right:auto;
+    width:40%;
+    margin-top: 50px;
+  }
+  .botText{
+    font-family: monospace;
+    font-size:16px;
+    text-align:left;
+    line-height:25px;
+    color:blue;
+  }
+  #userInput{
+    margin-left: auto;
+    margin-right:auto;
+    width:80%;
+    margin-top:50px;
+    text-align:center;
+  }
+  #textInput{
+    border-bottom: 3px solid green;
+    font-family:monospace;
+    font-size:16px;
+  }
+  #buttonInput{
+    padding:5px;
+    font-family:monospace;
+    font-size:16px;
+  }
+  h1{
+    text-align:center;
+
+  }
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <h1>Chatbot</h1>
+    <div>
+      <div id="chatbox">
+        <p class="botText"><span>Hi! There</span></p>
+
+      </div>
+      <div id="userInput">
+        <input id="textInput" type="text" name="userMessage" placeholder="Type your message here">
+
+        <input type="submit" id="buttonInput" name="" value="Send" onclick=""/>
+      </div>
+
+    </div>
+
+    <script>
+      function getUserResponse() {
+        var userText = $('#textInput').val();
+        var userHTML = "<p class='userText'><span>" + userText + "</span></p>";
+        $('#textInput').val("");
+        $('#chatbox').append(userHTML);
+        document.getElementById("userInput").scrollIntoView({block:'start', behavior:'smooth'});
+        $.get("/get", {userMessage: userText}).done(function(data) {
+          var botHTML = "<p class='botText'><span>" + data + "</span></p>";
+          $('#chatbox').append(botHTML);
+        });
+      }
+
+      $("#textInput").keypress(function(e) {
+        if (e.which == 13) {
+          getUserResponse();
+        }
+      });
+
+      $("#buttonInput").click(function(e) {
+        getUserResponse();
+      });
+    </script>
+
+  </body>
+</html>
+-->

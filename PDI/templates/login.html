@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>plant</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../static/css/style.css" rel="stylesheet">
+
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.7;
+            background-image: url('https://images.pexels.com/photos/1813513/pexels-photo-1813513.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+
+        .login-form {
+            max-width: 400px;
+            width: 100%;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-form h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-form label {
+            font-weight: 500;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .login-form button {
+            width: 100%;
+            background-color: #0d8629;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #07641e;
+        }
+
+        /* Header styles */
+        .jumbotron {
+    background: transparent;
+    padding: 150px 0;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.jumbotron h1 {
+    margin-bottom: 30px;
+}
+
+/* Login container styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 50px); /* Subtracting the header height from viewport height */
+}
+
+        /* Footer styles */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: 0;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar {
+    background-color: #333;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff;
+    font-size: 18px;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ccc;
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.navbar-nav {
+    text-align: center;
+}
+
+
+    </style>
+                    <script>
+                        addEventListener("load", function () {
+                            setTimeout(hideURLbar, 0);
+                        }, false);
+                
+                        function hideURLbar() {
+                            window.scrollTo(0, 1);
+                        }
+                
+                        function login(){
+                        var uname = document.getElementById("uname").value;
+                        var pwd = document.getElementById("pwd").value;
+                
+                    if(uname == "admin" || "nehal" && pwd == "admin" || "nehal")
+                    {
+                      
+                      window.location = "{{url_for('index')}}";
+                      return false;
+                    }
+                    else
+                    {
+                    alert("Invalid Credentials!")
+                    }
+                        }
+                        
+                          function register(){
+                            window.location = "{{url_for('register')}}";
+                          }
+                
+                
+                 
+                    </script>
+                    
+         
+</head>
+
+<body>
+    <!-- Topbar Start -->
+
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+<div class="container-fluid position-relative nav-bar p-0">
+    <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow p-lg-0">
+            <a href="index.html" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Plant</span>Disease</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="{{ url_for('first')}}" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('register') }}" class="nav-link">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+
+
+
+   
+
+    <!-- Contact Start -->
+    <div class="login-container">
+        <div class="login-form">
+            <h1>Login</h1>
+            <form>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="uname" name="uname" placeholder="Enter your username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="pwd" name="pwd" placeholder="Enter your password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="button"  value="Login"  onclick="login() ">
+                         
+                </div>
+            </form>
+            <p>Don't have an account? <div class="form-group">
+                <input type="button" value="Register" onclick="register()"></button>
+            </div></p>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Plant Disease Prediction. All rights reserved. | Designed by <a href="#" target="_blank">Nehal</a></p>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/lib/easing/easing.min.js"></script>
+    <script src="../static/lib/waypoints/waypoints.min.js"></script>
+    <script src="../static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../static/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="../static/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="../static/mail/jqBootstrapValidation.min.js"></script>
+    <script src="../static/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

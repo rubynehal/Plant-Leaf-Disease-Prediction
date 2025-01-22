@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Disease Detector</title>
+    <style>
+        body {
+            background-image: url("https://images.pexels.com/photos/3578393/pexels-photo-3578393.jpeg?auto=compress&cs=tinysrgb&w=600.jpg");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 60px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result img {
+            max-width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .result p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Plant Disease Detector</h1>
+        <form method="POST" action="/health" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required><br><br>
+            <label for="factor">Processing Factor:</label>
+            <input type="number" name="factor" id="factor" min="0" max="255" value="150" required><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        {% if disease_image %}
+            <div class="result">
+
+                <h2>Green Channel</h2>
+                <img src="data:image/png;base64,{{ g_channel }}" alt="Green Channel">
+
+                <h2>Blue Channel</h2>
+                <img src="data:image/png;base64,{{ b_channel }}" alt="Blue Channel">
+
+                <h2>Red Channel</h2>
+                <img src="data:image/png;base64,{{ r_channel }}" alt="Red Channel">
+
+                <h2>Alpha Channel</h2>
+                <img src="data:image/png;base64,{{ alpha_channel }}" alt="Alpha Channel">
+
+                <h2>Disease Image</h2>
+                <img src="data:image/png;base64,{{ disease_image }}" alt="Disease Image">
+
+                <h2>Disease Percentage</h2>
+                <p>{{ percentage }}%</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

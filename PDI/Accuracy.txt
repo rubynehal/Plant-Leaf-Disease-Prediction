@@ -1,0 +1,10 @@
+Plant Disease Detection and Classification Using Machine Learning Algorithm
+
+Algorithm / Model Used: InceptionV3 Architecture.
+
+Training accuracy of 91.34%. and 
+Validation accuracy of 89.21%.
+
+
+
+

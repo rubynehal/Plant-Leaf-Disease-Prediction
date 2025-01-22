@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>plant</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../static/css/style.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.7;
+            background-image: url('https://images.pexels.com/photos/16113546/pexels-photo-16113546/free-photo-of-plant-growing-on-a-sand.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    
+        .container-login100 {
+            background-image: url('https://images.pexels.com/photos/1813513/pexels-photo-1813513.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: fill;
+            margin-top: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 0 0 50%;
+            padding: 20px;
+            
+            margin-left:600px;
+            margin-right:600px;
+        }
+    
+        .login100-form-title {
+            background-image: url('../static/images/background2.jpg');
+        }
+        
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        #image-upload {
+            padding: 20px;
+        }
+        
+        #disease-table {
+            flex: 0 0 50%;
+            padding: 20px;
+            backdrop-filter: blur(20px);
+        
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow p-lg-0">
+                <a href="#" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Plant</span>Disease</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="{{ url_for('first')}}" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="/chatbot" class="nav-link">Chatbot</a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    
+    
+    <!-- Header End -->
+
+
+    <!-- Contact Start -->
+    
+    
+					
+					 <head>
+			   <script>
+    function previewImage() {
+        var file = document.getElementById("imagefile").files;
+        if (file.length > 0) {
+            var fileReader = new FileReader();
+ 
+            fileReader.onload = function (event) {
+                document.getElementById("preview").setAttribute("src", event.target.result);
+            };
+ 
+            fileReader.readAsDataURL(file[0]);
+        }
+    }
+</script>
+</head>
+<body>
+ 
+  <nav class="root navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid row">
+      <div class="navbar-header col-md-1 col-sm-1">
+      </div>
+	    
+      <div class="navbar-header col-md-11 col-sm-11"><h2 style="font-size: 3.5em;"></h1></div>    
+    </div>
+  </nav>
+
+
+  <div class="limiter">
+    <div class="container-login100" style="background-image: url(../static/images/background1.jpg); background-size: fill;">
+      <div class="wrap-login100">
+        <div class="login100-form-title" style=" background-image: url(../static/images/background2.jpg);">
+		 
+		
+        <center>  <span class="login100-form-title-1">
+            <h3>Upload Image:</h3>
+          </span></center>
+		  
+        </div>
+</br>
+		</br>
+       <center> <form class="login100-form validate-form" action="/submit" method="POST" enctype="multipart/form-data">
+          <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+		  <br>
+            <input class="input100" type="file" name="my_image" id="imagefile" class="btn" accept="image/*" onchange="previewImage();" required>
+	 
+          </div>
+		
+    <img id="preview">
+          <div class="container-login100-form-btn">
+		  </br>
+		  </br>
+            <button class="login100-form-btn" type="submit"> Submit </button>
+          </div>
+        </form></center>
+      </div>
+    </div>
+    <div id="disease-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Disease ID</th>
+                    <th>Plant</th>
+                    <th>Disease Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Apple</td>
+                    <td>Apple scab disease, Black rot disease, Cedar apple rust, Healthy</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Blueberry</td>
+                    <td>Healthy</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Cherry</td>
+                    <td>Powdery mildew, Healthy</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Corn(maize)</td>
+                    <td>Cercospora leaf_spot, Common rust, Northern Leaf Blight, Healthy</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Grape</td>
+                    <td>Black_rot, Esca (Black_Measles), Leaf blight (Isariopsis_Leaf_Spot), Healthy</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Orange</td>
+                    <td>Haunglongbing (Citrus_greening)</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Peach</td>
+                    <td>Bacterial_spot, Healthy</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Pepper</td>
+                    <td>Bacterial_spot, Healthy</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Potato</td>
+                    <td>Early blight, Late_blight, Healthy</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Raspberry</td>
+                    <td>Healthy</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Soyabean</td>
+                    <td>Healthy</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Squash</td>
+                    <td>Powdery mildew</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Strawberry</td>
+                    <td>Leaf scorch, Healthy</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Tomato</td>
+                    <td>Bacterial spot, Early blight, Late blight, Leaf Mold, Septoria leaf Spot, Spider mites, Target_Spot, Yellow Leaf Curl Virus, mosaic virus, Healthy</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div> 
+</body>
+
+
+					
+					
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+ 
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/lib/easing/easing.min.js"></script>
+    <script src="../static/lib/waypoints/waypoints.min.js"></script>
+    <script src="../static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../static/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="../static/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="../static/mail/jqBootstrapValidation.min.js"></script>
+    <script src="../static/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

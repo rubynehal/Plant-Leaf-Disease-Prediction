@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>plant</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../static/css/style.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.7;
+            background-image: url('https://images.pexels.com/photos/1599969/pexels-photo-1599969.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    
+        .container-fluid {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+    
+        .jumbotron {
+            background-color: #0d6efd;
+            color: #fff;
+        }
+    
+        .section-title {
+            position: relative;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+    
+        .content {
+            margin-top: 30px;
+            margin-left: 200px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+    
+        .content img {
+            height: 300px;
+            width: 300px;
+        }
+    
+        .content h3,
+        .content h5 {
+            margin-top: 20px;
+            font-weight: 600;
+            margin-left: 10px;
+            text-align: center;
+            width: 80%;
+            margin: 0 auto;
+        }
+    
+        a {
+            margin-top: 20px;
+            color: #0d6efd;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .navbar {
+            background-color: #257608;
+            border-bottom: 1px solid #ccc;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .nav-item {
+            margin: 0 10px;
+        }
+        
+        .nav-item a {
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-item a:hover {
+            color: #20a348;
+        }
+        .chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    text-align: center;
+}
+
+.chatbot-button .btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #20a348;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.chatbot-button .btn:hover {
+    background-color: black;
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg shadow p-lg-0">
+                
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="{{ url_for('first')}}" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url_for('index')}}" class="nav-link active">Preview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/chatbot" class="nav-link active">Chatbot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/health" class="nav-link active">Health Percentage</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    
+    <!-- Header End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-16">
+                    <h1 style="text-align: center;">Prediction Results</h1>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="content">
+                            <div class="col-lg-12">
+                                {% if prediction %}
+                                <br>
+                                <div style="margin-left: 50px">
+                                    <img src="{{img_path}}" height="300px" width="300px">
+                                </div></div>
+                                <br>
+                                <br>
+                                
+                            
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+            <h2 style="font-family: 'Poppins', sans-serif; color: #333; font-weight: bold;  width: 100%; margin-right: 40%;">Disease Name: <i>{{prediction}}</i></h2><br>
+                                <h4 style="font-family: 'Poppins', sans-serif; color: #333; font-weight: bold;  width: 100%; margin: 0 auto;"><h2>Description of Disease:</h2> <i>{{pred}}</i></h4>
+                                <br>
+                                <h4 style="font-family: 'Poppins', sans-serif; color: #333; font-weight: bold;  width: 100%; margin: 0 auto;"><h2>Treatment:</h2> <i>{{remedy}}</i></h4>
+                                {% endif %}
+        </div>
+    </div>
+    <!-- Contact End -->
+    <div class="chatbot-button">
+        <a href="/chatbot" class="btn btn-primary">Chatbot</a>
+    </div>
+
+    <!-- Footer End -->
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/lib/easing/easing.min.js"></script>
+    <script src="../static/lib/waypoints/waypoints.min.js"></script>
+    <script src="../static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../static/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="../static/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="../static/mail/jqBootstrapValidation.min.js"></script>
+    <script src="../static/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
